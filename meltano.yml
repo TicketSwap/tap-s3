@@ -1,0 +1,48 @@
+send_anonymous_usage_stats: true
+project_id: "tap-s3"
+default_environment: test
+requires_meltano: ">=4.0"
+environments:
+- name: test
+plugins:
+  extractors:
+  - name: "tap-s3"
+    namespace: "tap_s3"
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
+    - structured-logging
+
+    settings:
+    - name: bucket
+      label: S3 Bucket
+      description: The S3 bucket containing the Parquet files to extract
+
+    - name: prefix
+      label: S3 Prefix
+      description: Folder (key prefix) within the bucket to read Parquet files from
+
+    - name: aws_profile
+      label: AWS Profile
+      description: Named AWS profile to use (e.g. an SSO profile). Leave unset to use the default profile.
+
+    - name: aws_region
+      label: AWS Region
+      description: AWS region of the S3 bucket. Leave unset to use your AWS config's default region.
+
+    settings_group_validation:
+    - [bucket]
+    config:
+      prefix: ""
+
+    select:
+    - "*.*"
+
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
