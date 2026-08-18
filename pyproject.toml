@@ -28,8 +28,8 @@ license = "Apache-2.0"
 license-files = [ "LICENSE" ]
 requires-python = ">=3.10"
 dependencies = [
-    "boto3>=1.43.56",
-    "pyarrow>=25.0.0",
+    "boto3>=1.43.68",
+    "pyarrow>=25.0.1",
     "singer-sdk~=0.54.5",
     "typing-extensions>=4.5.0; python_version < '3.13'",
 ]
