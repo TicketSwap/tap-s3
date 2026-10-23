@@ -130,6 +130,7 @@ pass_env = [
     "CI",
     "GITHUB_*",
     "TAP_S3_*",
+    "AWS_*",
 ]
 dependency_groups = [ "test" ]
 commands = [ [ "pytest", { replace = "posargs", default = [ "tests" ], extend = true } ] ]
