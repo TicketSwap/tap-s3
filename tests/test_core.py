@@ -1,8 +1,6 @@
 """Tests standard tap features using the built-in SDK tests library.
 
-NOTE: These tests require a real, already-authenticated AWS session (e.g. via
-`aws sso login`) with read access to the bucket/prefix below, since the tap
-lists and reads real Parquet objects from S3 rather than mocked data.
+The bucket is a moto S3 mock set up in conftest.py, so no AWS access is needed.
 """
 
 from singer_sdk.testing import get_tap_test_class
