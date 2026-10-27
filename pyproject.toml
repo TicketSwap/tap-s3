@@ -42,6 +42,7 @@ dev = [
     { include-group = "test" },
 ]
 test = [
+    "moto[s3]>=5.2.4",
     "pytest>=9.1.1",
     "pytest-github-actions-annotate-failures>=0.4.2",
     "singer-sdk[testing]",
@@ -97,7 +98,8 @@ required-version = ">=0.16.0"
 [tool.ruff.lint]
 future-annotations = true
 ignore = [
-    "missing-trailing-comma",
+    "COM812",
+    "CPY001",
 ]
 select = ["ALL"]
 
@@ -106,7 +108,7 @@ allow-star-arg-any = true
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
-  "assert",
+  "S101",
 ]
 
 [tool.ruff.lint.pydocstyle]

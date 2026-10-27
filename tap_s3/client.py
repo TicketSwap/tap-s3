@@ -84,7 +84,7 @@ class _S3RangeReader(io.RawIOBase):
     `ParquetFile` needs to resolve `schema_arrow` cheaply.
     """
 
-    def __init__(self, s3_client: Any, bucket: str, key: str) -> None:
+    def __init__(self, s3_client: Any, bucket: str, key: str) -> None:  # noqa: ANN401
         """Initialize the reader and look up the object's size.
 
         Args:
@@ -178,7 +178,7 @@ class S3Stream(Stream):
     """
 
     @cached_property
-    def s3_client(self) -> Any:
+    def s3_client(self) -> Any:  # noqa: ANN401
         """A boto3 S3 client, authenticated via the local AWS credential chain.
 
         Returns:
